@@ -1,5 +1,5 @@
 ---
-feature_image: "/images/cover.jpeg"
+feature_image: "/images/img_page.jpeg"
 ---
 
 <!-- No Title -->
