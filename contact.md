@@ -6,7 +6,7 @@ layout: page
 
 <style>
   body {
-    background-color: #add8e6; /* Light blue background */
+    background-color: #d0e7ff; /* Light blue background */
   }
 
   a {
