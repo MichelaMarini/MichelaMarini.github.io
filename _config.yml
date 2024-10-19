@@ -26,7 +26,7 @@ baseurl: ''
 title: 'Michela Marini'
 description: 'UH'
 permalink: pretty
-logo: "/images/logo_name.jpeg"
+logo: "/images/logo_name.png"
 
 # Pagination
 paginate: 5
