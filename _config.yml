@@ -1,0 +1,58 @@
+# Set theme
+remote_theme: daviddarnes/alembic@main
+
+# File excludes
+exclude:
+- README.md
+- Gemfile
+- Gemfile.lock
+
+# Set plugins
+plugins:
+- jekyll-sitemap
+- jekyll-mentions
+- jekyll-paginate
+- jekyll-seo-tag
+- jekyll-redirect-from
+- jekyll-feed
+- jekyll-commonmark
+- jekyll-include-cache
+- jemoji
+- jekyll-remote-theme
+
+# Site settings
+url: 'https://mydomain.com'
+baseurl: ''
+title: 'Michela Marini'
+description: 'UH'
+permalink: pretty
+logo: "/images/logo_name.jpeg"
+
+# Pagination
+paginate: 5
+paginate_path: blog/page:num
+
+# Header nav
+navigation_header:
+- title: Home
+  url: /
+- title: Contact
+  url: /contact/
+- title: Research
+  url: /research/
+# - title: Teaching
+#  url: /teaching/
+
+# Footer nav
+navigation_footer:
+- title: GitHub
+  url: "https://github.com/MichelaMarini"
+  icon: "/images/github.svg"
+
+- title: LinkedIn
+  url: "https://www.linkedin.com/in/michela-marini-bb813517a/"
+  icon: "/images/linkedin.svg"
+
+- title: adopted theme alembic
+  url: "https://github.com/daviddarnes/alembic"
+
