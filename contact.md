@@ -6,7 +6,15 @@ layout: page
 
 <style>
 body {
-    background-color: #add8e6;
+    background-color: #add8e6; /* Light blue background */
+  }
+
+  a {
+    color: #00008B; /* Dark blue for links */
+  }
+
+  a:visited {
+    color: #5A5A8B; /* Slightly lighter dark blue for visited links */
   }
 
   .contact-container {
