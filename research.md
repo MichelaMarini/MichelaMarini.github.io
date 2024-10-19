@@ -12,7 +12,7 @@ permalink: /research/
   a {
     color: #00008B; /* Dark blue for links */
     background-color: transparent; /* Ensure link background is transparent */
-    text-decoration: none; /* Remove underline, optional */
+    text-decoration: none; /* Remove underline */
   }
 
   a:visited {
@@ -20,19 +20,20 @@ permalink: /research/
   }
 </style>
 
-
 # Research
 
 ## Overview
 
-Welcome to my research page! As a PhD candidate in the Mathematics Department, my research integrates mathematical and statistical analysis and machine learning techniques to address complex problems in biological image analysis. My primary focus is on applying these methodologies to single-cell analysis using high-throughput microscopy images, with the aim of advancing our understanding in neuroscience and biology.
+Welcome to my research page! As a PhD candidate in the Mathematics Department, my work integrates mathematical and statistical analysis with machine learning techniques to tackle complex problems in biological image analysis. I primarily focus on applying these methodologies to single-cell analysis using high-throughput microscopy images, aiming to advance our understanding in neuroscience and biology.
 
 ## Publications
 
-- F. Stossi, P. Singh, K. Safari, M. Marini, D. Labate, M. Mancini, "High-throughput microscopy and single-cell phenotypic image-based analysis in toxicology and drug discovery," *Biochemical Pharmacology*, 2023.
+### Peer-Reviewed Articles
 
-- F. Stossi, P.K. Singh, M. Marini, K. Safari, A.T. Szafran, A. Rivera Tostado, C.D. Candler, M.G. Mancini, E.A. Mosa, M.J. Bolt, D. Labate, M.A. Mancini, "SPACe (Swift Phenotypic Analysis of Cells): an open-source platform for single-cell analysis of Cell Painting data," *bioRxiv*, under review in *Nature Communications*, 2024.
+- **Stossi, F., Singh, P., Safari, K., Marini, M., Labate, D., Mancini, M.** (2023). High-throughput microscopy and single-cell phenotypic image-based analysis in toxicology and drug discovery. *Biochemical Pharmacology*.
 
-- M. Marini, Y. Niu, H. Zhao, A. Kruyer, D. Labate, "Supervised and unsupervised learning reveals heroin-induced impairments in astrocyte structural plasticity," submitted, 2024.
+- **Stossi, F., Singh, P.K., Marini, M., Safari, K., Szafran, A.T., Rivera Tostado, A., Candler, C.D., Mancini, M.G., Mosa, E.A., Bolt, M.J., Labate, D., Mancini, M.A.** (2024). SPACe (Swift Phenotypic Analysis of Cells): an open-source platform for single-cell analysis of Cell Painting data. *bioRxiv*, under review in *Nature Communications*.
 
-- J. Di Re, M. Marini, S.I. Hussain, A.K. Singh, A. Venkatesh, M.A. Alshammari, T.K. Alshammari, A.R.A. Hamoud, A.S. Imami, Z. Haghighijoo, N. Fularcyzk, L. Stertz, A. Mosebarger, J. Jernigan, C. Chaljub, C. Walss-Bass, A. Schulmann, M.P. Vawter, R. McCullumsmith, R.D. Damoiseaux, A. Limon, D. Labate, M.F. Wells, F. Laezza, "βIV Spectrin abundancy, cellular distribution, and sensitivity to AKT/GSK3 regulation in schizophrenia," under review, 2024.
+- **Marini, M., Niu, Y., Zhao, H., Kruyer, A., Labate, D.** (2024). Supervised and unsupervised learning reveals heroin-induced impairments in astrocyte structural plasticity. *Submitted*.
+
+- **Di Re, J., Marini, M., Hussain, S.I., Singh, A.K., Venkatesh, A., Alshammari, M.A., Alshammari, T.K., Hamoud, A.R.A., Imami, A.S., Haghighijoo, Z., Fularcyzk, N., Stertz, L., Mosebarger, A., Jernigan, J., Chaljub, C., Walss-Bass, C., Schulmann, A., Vawter, M.P., McCullumsmith, R.D., Damoiseaux, R., Limon, A., Labate, D., Wells, M.F., Laezza, F.** (2024). βIV Spectrin abundancy, cellular distribution, and sensitivity to AKT/GSK3 regulation in schizophrenia. *Under Review*.
