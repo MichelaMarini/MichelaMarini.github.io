@@ -20,15 +20,11 @@ permalink: /research/
   }
 </style>
 
-# Research
-
 ## Overview
 
 Welcome to my research page! As a PhD candidate in the Mathematics Department, my work integrates mathematical and statistical analysis with machine learning techniques to tackle complex problems in biological image analysis. I primarily focus on applying these methodologies to single-cell analysis using high-throughput microscopy images, aiming to advance our understanding in neuroscience and biology.
 
 ## Publications
-
-### Peer-Reviewed Articles
 
 - **Stossi, F., Singh, P., Safari, K., Marini, M., Labate, D., Mancini, M.** (2023). High-throughput microscopy and single-cell phenotypic image-based analysis in toxicology and drug discovery. *Biochemical Pharmacology*.
 
