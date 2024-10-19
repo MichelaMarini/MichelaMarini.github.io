@@ -5,10 +5,21 @@ permalink: /research/
 ---
 
 <style>
-body {
-    background-color: #add8e6; /* Light blue background */
-}
+  body {
+    background-color: #E1EFC1; 
+  }
+
+  a {
+    color: #00008B; /* Dark blue for links */
+    background-color: transparent; /* Ensure link background is transparent */
+    text-decoration: none; /* Remove underline, optional */
+  }
+
+  a:visited {
+    color: #5A5A8B; /* Slightly lighter dark blue for visited links */
+  }
 </style>
+
 
 # Research
 
