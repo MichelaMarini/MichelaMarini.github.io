@@ -3,7 +3,11 @@ layout: page
 ---
 
 <!-- No Title -->
-
+<style>
+  body {
+    background-color: #d0e7ff; /* Lighter blue background */
+  }
+</style>
   /* Optional: if links are inside any specific containers that might have background issues */
   .container, .content, .wrapper {
     background-color: transparent; /* Ensure parent containers have transparent backgrounds */
