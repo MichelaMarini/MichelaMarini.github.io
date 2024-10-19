@@ -4,6 +4,24 @@ feature_image: "/images/img_page.jpeg"
 
 <!-- No Title -->
 
+<style>
+  body {
+    background-color: #98FF98; 
+  }
+
+  a {
+    color: #00008B; /* Dark blue for links */
+    background-color: transparent; /* Ensure link background is transparent */
+    text-decoration: none; /* Remove underline, optional */
+  }
+
+  a:visited {
+    color: #5A5A8B; /* Slightly lighter dark blue for visited links */
+  }
+</style>
+
+
+
 ## About me
 
 I am a PhD candidate in the Mathematics Department at the University of Houston, working under the supervision of [Demetrio Labate](https://www.math.uh.edu/~dlabate/index.html). I collaborate with the [Integrated Microscopy Core Lab](https://www.bcm.edu/research/atc-core-labs/integrated-microscopy-core) at Baylor College of Medicine, focusing on data analysis of Cell Painting images. My passion lies in machine learning and developing innovative solutions that can improve lives, especially in the fields of neuroscience and biology. 
