@@ -5,18 +5,24 @@ layout: page
 <!-- No Title -->
 
 <style>
-body {
+  body {
     background-color: #add8e6; /* Light blue background */
   }
 
   a {
     color: #00008B; /* Dark blue for links */
+    background-color: transparent; /* Ensure link background is transparent */
+    text-decoration: none; /* Remove underline, optional */
   }
 
   a:visited {
     color: #5A5A8B; /* Slightly lighter dark blue for visited links */
   }
 
+  /* Optional: if links are inside any specific containers that might have background issues */
+  .container, .content, .wrapper {
+    background-color: transparent; /* Ensure parent containers have transparent backgrounds */
+  }
   .contact-container {
     display: flex;
     justify-content: flex-start; /* Align content to the left */
