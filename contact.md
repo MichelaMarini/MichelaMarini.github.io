@@ -5,8 +5,18 @@ layout: page
 <!-- No Title -->
 
 <style>
-body {
-    background-color: #d0e7ff;
+  body {
+    background-color: #d0e7ff; /* Lighter blue background */
+  }
+
+  a {
+    color: #00008B; /* Dark blue for links */
+    background-color: transparent; /* Ensure link background is transparent */
+    text-decoration: none; /* Remove underline, optional */
+  }
+
+  a:visited {
+    color: #5A5A8B; /* Slightly lighter dark blue for visited links */
   }
 
   .contact-container {
