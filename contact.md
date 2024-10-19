@@ -4,22 +4,6 @@ layout: page
 
 <!-- No Title -->
 
-<style>
-  body {
-    background-color: #d0e7ff; /* Light blue background */
-  }
-
-  a {
-    color: #00008B; /* Dark blue for links */
-    background-color: transparent; 
-    text-decoration: none; 
-  }
-
-  a:visited {
-    color: #5A5A8B; 
-  }
-  </style>
-
   /* Optional: if links are inside any specific containers that might have background issues */
   .container, .content, .wrapper {
     background-color: transparent; /* Ensure parent containers have transparent backgrounds */
