@@ -50,9 +50,16 @@ layout: page
     .contact-image-container {
         float: none; /* Remove float on smaller screens */
         margin-left: 0; /* Remove the left margin */
-        width: 150px; /* Adjust width for smaller screens */
-        height: 150px; /* Adjust height for smaller screens */
+        width: 120px; /* Further reduce the width for smaller screens */
+        height: 120px; /* Further reduce the height for smaller screens */
         margin: 0 auto; /* Center the image */
+        border-radius: 50%; /* Ensure circular shape */
+    }
+
+    .contact-image {
+        width: 100%; /* Ensure the image fits the container */
+        height: 100%; /* Ensure the image fills the container */
+        object-fit: cover; /* Keep the circular aspect ratio */
     }
 }
 
