@@ -53,7 +53,6 @@ layout: page
         width: 120px; /* Further reduce the width for smaller screens */
         height: 120px; /* Further reduce the height for smaller screens */
         margin: 0 auto; /* Center the image */
-        border-radius: 50%; /* Ensure circular shape */
     }
 
     .contact-image {
