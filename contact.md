@@ -45,6 +45,17 @@ layout: page
     height: auto; /* Allow the image to adjust its height while maintaining aspect ratio */
   }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-image-container {
+        float: none; /* Remove float on smaller screens */
+        margin-left: 0; /* Remove the left margin */
+        width: 150px; /* Adjust width for smaller screens */
+        height: 150px; /* Adjust height for smaller screens */
+        margin: 0 auto; /* Center the image */
+    }
+}
+
 <style>
   .contact-container .contact-info h1 {
     font-family: 'Arial', sans-serif; /* Change this to any font you prefer */
