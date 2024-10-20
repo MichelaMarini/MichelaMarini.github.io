@@ -31,14 +31,14 @@ layout: page
     text-align: left;
   }
 
-  .contact-image-container {
-    float: left; /* Float the image container to the left */
-    margin-left: 100px; /* Add space between the contact info and the image */
-    border-radius: 50%; /* Make the image circular */
-    width: 300px; /* Adjust the width to your preference */
-    height: 300px; /* Adjust the height to your preference */
+ .contact-image-container {
+    float: left; /* Float the image container to the left on larger screens */
+    margin-left: 80px; /* Slightly reduce the left margin */
+    border-radius: 50%; /* Keep the image circular */
+    width: 240px; /* Reduce the width to make the image smaller */
+    height: 240px; /* Reduce the height accordingly */
     overflow: hidden; /* Hide the overflow to maintain the circular shape */
-  }
+}
 
   .contact-image {
     width: 100%; /* Ensure the image fits within the container */
@@ -62,6 +62,7 @@ layout: page
     font-size: 24px; /* Adjust the size */
     font-weight: bold; /* Adjust the weight */
     color: #333; /* Adjust the color */
+    border-radius: 50%; /* Ensure circular shape */
   }
 </style>
 
