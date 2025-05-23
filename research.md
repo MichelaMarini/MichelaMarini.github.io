@@ -26,7 +26,7 @@ Welcome to my research page! As a PhD candidate in the Mathematics Department, m
 
 ## Publications
 
-- **Stossi, F., Singh, P., Safari, K., Marini, M., Labate, D., Mancini, M.** (2023). High-throughput microscopy and single-cell phenotypic image-based analysis in toxicology and drug discovery. *Biochemical Pharmacology*.
+- **Stossi, F., Singh, P., Safari, K., Marini, M., Labate, D., Mancini, M.** (2023). High-throughput microscopy and single-cell phenotypic image-based analysis in toxicology and drug discovery. *Biochemical Pharmacology*. DOI [10.1016/j.bcp.2023.115770](https://doi.org/10.1016/j.bcp.2023.115770)
 
 - **Stossi, F., Singh, P.K., Marini, M., Safari, K., Szafran, A.T., Rivera Tostado, A., Candler, C.D., Mancini, M.G., Mosa, E.A., Bolt, M.J., Labate, D., Mancini, M.A.** (2024). SPACe (Swift Phenotypic Analysis of Cells): an open-source platform for single-cell analysis of Cell Painting data. *bioRxiv*, under review in *Nature Communications*.
 
