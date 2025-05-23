@@ -31,13 +31,15 @@ I also serve as the vice president of the [UH chapter of AWM](https://uhawm.word
 
 ## Education
 
-- **Ph.D.** Mathematics, University of Houston, May 2025 (Expected)
+- **Ph.D.** Mathematics, University of Houston, August 2025 (Expected)
 - **M.S.** Bioelectronics Engineering, University of Bologna, Italy 
 - **B.S.** Biomedical Engineering, University of Bologna, Italy
 
 ## Events
 
-- _08/2024_ \| I will present our research poster at the SIAM Conference on Mathematics of Data Science ([MDS2024](https://www.siam.org/conferences-events/siam-conferences/mds24/)) in Atlanta, GA, US.
+- _05/2025_ \| My first first-author paper is out in *Science Advances*! The University of Houston featured our study in a [press release](https://uh.edu/news-events/stories/2025/april/04302025-heroin-brain-study.php).
+
+- _10/2024_ \| I presented our research poster at the SIAM Conference on Mathematics of Data Science ([MDS2024](https://www.siam.org/conferences-events/siam-conferences/mds24/)) in Atlanta, GA, US.
 
 - _05/2024_ \| I presented our research poster at the COTS-2024: AI, Machine Learning, and Other Related Statistical Techniques with Applications in Healthcare ([COTS-2024](https://sites.google.com/view/cots2024houstonmethodistmathur/home)) in Houston, TX, US. I won second place in the best poster competition. 
 
