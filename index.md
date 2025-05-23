@@ -6,7 +6,7 @@ feature_image: "/images/img_page.jpeg"
 
 <style>
   body {
-    background-color: #F3ECDE; 
+    background-color: #FFFFFF; 
   }
 
   a {
