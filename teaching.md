@@ -20,8 +20,6 @@ layout: page
   }
 </style>
 
-# Teaching
-
 ## PyTorch Tutorial — MATH 6373: Deep Learning and Neural Networks
 
 At the University of Houston, I developed and led PyTorch tutorials for **MATH 6373: Deep Learning and Neural Networks**. The tutorials introduced students to implementing neural networks in Python using PyTorch, with hands-on notebooks covering core concepts and common deep learning architectures.
