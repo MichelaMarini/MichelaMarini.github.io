@@ -38,7 +38,7 @@ I also served as vice president of the University of Houston chapter of the Asso
 
 ## Education
 
-- **Ph.D.** Mathematics, University of Houston, USA (2025)
+- **Ph.D.** Mathematics, University of Houston, USA 
 - **M.S.** Bioelectronics Engineering, University of Bologna, Italy 
 - **B.S.** Biomedical Engineering, University of Bologna, Italy
 
