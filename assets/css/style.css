@@ -77,6 +77,9 @@ p { margin: 0 0 1rem; }
 }
 .brand { font-family: var(--font-head); font-weight: 600; font-size: 1.2rem; color: var(--heading); text-decoration: none; }
 .brand:hover { color: var(--accent); }
+.brand { display: inline-flex; align-items: center; }
+.brand-logo { display: block; height: 2.5rem; width: auto; }
+@media (prefers-color-scheme: dark) { .brand-logo { filter: invert(1); } }
 .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; }
 .nav-link {
   display: block; padding: 0.45rem 0.8rem; border-radius: 6px;
@@ -93,6 +96,7 @@ p { margin: 0 0 1rem; }
 
 @media (max-width: 720px) {
   .nav-toggle { display: block; }
+  .brand-logo { height: 2.1rem; }
   .nav-menu {
     display: none; position: absolute; left: 0; right: 0; top: 100%;
     flex-direction: column; padding: 0.5rem 1rem 1rem;
