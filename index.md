@@ -30,8 +30,6 @@ My research focuses on developing computational methods and software to process 
 
 Previously, I collaborated with the [Integrated Microscopy Core Lab](https://www.bcm.edu/research/atc-core-labs/integrated-microscopy-core) at Baylor College of Medicine on the quantitative analysis of Cell Painting images.
 
-My main interest is in developing software to process and analyze biological images. I enjoy finding computational solutions to challenging problems in biology, using image processing, machine learning, and quantitative methods to better understand cells, their characteristics, and how they behave in complex tissues.
-
 I also served as vice president of the University of Houston chapter of the Association for Women in Mathematics (AWM).
 
 ## Education
