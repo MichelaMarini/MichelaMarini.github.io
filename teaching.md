@@ -1,3 +1,25 @@
+---
+layout: page
+---
+
+<!-- No Title -->
+
+<style>
+  body {
+    background-color: #FFFFFF; 
+  }
+
+  a {
+    color: #00008B; /* Dark blue for links */
+    background-color: transparent; /* Ensure link background is transparent */
+    text-decoration: none; /* Remove underline */
+  }
+
+  a:visited {
+    color: #5A5A8B; /* Slightly lighter dark blue for visited links */
+  }
+</style>
+
 # Teaching
 
 ## PyTorch Tutorial — MATH 6373: Deep Learning and Neural Networks
