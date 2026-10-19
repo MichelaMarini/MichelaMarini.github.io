@@ -15,6 +15,7 @@ Previously, I collaborated with the [Integrated Microscopy Core Lab](https://www
   <aside class="intro-card">
     <img src="{{ '/images/me.jpeg' | relative_url }}" alt="Portrait of {{ site.author.name }}" class="portrait">
     <dl class="facts">
+      <dt>Position</dt><dd>Postdoc</dd>
       <dt>Group</dt><dd><a href="{{ site.author.group_url }}">{{ site.author.group }}</a></dd>
       <dt>Institute</dt><dd>IBEC, {{ site.author.city }}</dd>
       <dt>Email</dt><dd><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></dd>
