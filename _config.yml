@@ -21,8 +21,8 @@ author:
   email: mmarini@ibecbarcelona.eu
   github: "https://github.com/MichelaMarini"
   linkedin: "https://www.linkedin.com/in/michela-marini-bb813517a/"
-  scholar: ""   # paste your Google Scholar profile link here to show it
-  orcid: ""     # paste your ORCID link here (https://orcid.org/...) to show it
+  scholar: "https://scholar.google.com/citations?user=o3NTbc0AAAAJ&hl=en&oi=ao" 
+  orcid: "https://orcid.org/0009-0008-9053-5768"  
 
 # Menu at the top of every page (order = order shown)
 navigation:
