@@ -24,14 +24,21 @@ feature_image: "/images/img_page.jpeg"
 
 ## About me
 
-I am a PhD candidate in the Mathematics Department at the University of Houston, working under the supervision of [Demetrio Labate](https://www.math.uh.edu/~dlabate/index.html). I collaborate with the [Integrated Microscopy Core Lab](https://www.bcm.edu/research/atc-core-labs/integrated-microscopy-core) at Baylor College of Medicine, focusing on data analysis of Cell Painting images. My passion lies in machine learning and developing innovative solutions that can improve lives, especially in the fields of neuroscience and biology. 
-My primary interest is in creating software to process and analyze biological images. 
+I am a Postdoctoral Researcher in the [Spatial Biotechnology group](https://ibecbarcelona.eu/research-groups/spatial-biotechnology/) at the Institute for Bioengineering of Catalonia (IBEC), working at the intersection of computational imaging, spatial biology, and applied mathematics. I hold a Ph.D. in Applied Mathematics from the University of Houston, USA.
 
-I also serve as the vice president of the [UH chapter of AWM](https://uhawm.wordpress.com) (Association for Women in Mathematics).
+My research focuses on developing computational methods and machine learning pipelines for the quantitative analysis of biological images and spatial omics data. I am particularly interested in image segmentation, feature extraction, image-based profiling, and the reconstruction and analysis of complex biological tissues. My goal is to develop open-source computational tools that help researchers extract meaningful biological insights from high-throughput imaging data.
+
+My work spans interdisciplinary projects in cancer biology and neuroscience, combining mathematical modeling, statistical methods, and machine learning to address challenges in biomedical research.
+
+Previously, I collaborated with the [Integrated Microscopy Core Lab](https://www.bcm.edu/research/atc-core-labs/integrated-microscopy-core) at Baylor College of Medicine on the quantitative analysis of Cell Painting images.
+
+My main interest is in developing software to process and analyze biological images. I enjoy finding computational solutions to challenging problems in biology, using image processing, machine learning, and quantitative methods to better understand cells, their characteristics, and how they behave in complex tissues.
+
+I also served as vice president of the University of Houston chapter of the Association for Women in Mathematics (AWM).
 
 ## Education
 
-- **Ph.D.** Mathematics, University of Houston, August 2025 (Expected)
+- **Ph.D.** Mathematics, University of Houston, USA (2025)
 - **M.S.** Bioelectronics Engineering, University of Bologna, Italy 
 - **B.S.** Biomedical Engineering, University of Bologna, Italy
 
