@@ -78,7 +78,7 @@ layout: page
     <h1>Get in Touch!</h1>
 
     <ul>
-      <li><b>Email:</b> <a href="mailto:mmarini@ibecbarcelona.eu">mmarini(at)ibecbarcelona(dot)eu</a></li>
+      <li><b>Email:</b> <a href="mailto:mmarini@ibecbarcelona.eu">mmarini@ibecbarcelona.eu</a></li>
       <li><b>LinkedIn:</b> <a href="https://www.https://www.linkedin.com/in/michela-marini-bb813517a/">Michela Marini</a></li>
       <li><b>GitHub:</b> <a href="https://github.com/MichelaMarini" target="_blank">MichelaMarini</a></li>
     </ul>
