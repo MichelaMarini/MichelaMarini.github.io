@@ -22,7 +22,7 @@ layout: page
 
 ## Overview
 
-Welcome to my research page! As a PhD candidate in the Mathematics Department, my work integrates mathematical and statistical analysis with machine learning techniques to tackle complex problems in biological image analysis. I primarily focus on applying these methodologies to single-cell analysis using high-throughput microscopy images, aiming to advance our understanding in neuroscience and biology.
+Welcome to my research page! My research focuses on developing computational methods to process and analyze biological images. I combine applied mathematics, statistical analysis, and machine learning to study complex biological data, with a particular interest in microscopy imaging and spatial omics. Through my work, I aim to develop tools that help researchers better understand cellular features, biological phenotypes, and tissue organization.
 
 ## Publications
 
