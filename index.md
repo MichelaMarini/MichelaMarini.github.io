@@ -44,7 +44,7 @@ I also served as vice president of the University of Houston chapter of the Asso
 
 ## Events
 
-- _09/2026_ \| I presented our research poster at the European Society for Systems Biology [ESSB](https://essb2026.org/) Conference in Sitges, Spain.
+- _09/2026_ \| I presented our research poster at the European Society for Systems Biology ([ESSB](https://essb2026.org/)) Conference in Sitges, Spain.
   
 - _07/2025_ \| I successfully defended my PhD in Applied Mathematics at the University of Houston :)
   
