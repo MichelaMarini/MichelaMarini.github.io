@@ -78,11 +78,9 @@ layout: page
     <h1>Get in Touch!</h1>
 
     <ul>
-      <li><b>Email:</b> <a href="mailto:mmarini2@uh.edu">mmarini2(at)uh(dot)edu</a></li>
+      <li><b>Email:</b> <a href="mailto:mmarini@ibecbarcelona.eu">mmarini(at)ibecbarcelona(dot)eu</a></li>
       <li><b>LinkedIn:</b> <a href="https://www.https://www.linkedin.com/in/michela-marini-bb813517a/">Michela Marini</a></li>
       <li><b>GitHub:</b> <a href="https://github.com/MichelaMarini" target="_blank">MichelaMarini</a></li>
-      <li><b>Office:</b> <a href="https://www.uh.edu/maps/#/find/PGH">PGH</a> 612</li>
-      <li><b>Address:</b> 3551 Cullen Blvd., Houston, TX 77004</li>
     </ul>
   </div>
 
