@@ -1,35 +1,29 @@
 ---
-layout: page
+title: Research
 ---
 
-<!-- No Title -->
+My research focuses on developing computational methods to process and analyze biological images. I combine applied mathematics, statistical analysis, and machine learning to study complex biological data, with a particular interest in microscopy imaging and spatial omics. Through my work, I aim to develop tools that help researchers better understand cellular features, biological phenotypes, and tissue organization.
 
-<style>
-  body {
-    background-color: #FFFFFF; 
-  }
+<!-- Edit the three themes below to describe your work in your own words. -->
+<div class="themes">
+  <article class="theme">
+    <h3>Image analysis and machine learning</h3>
+    <p>Supervised and unsupervised learning methods to quantify cell morphology and structural changes from microscopy images.</p>
+  </article>
+  <article class="theme">
+    <h3>Single-cell phenotyping</h3>
+    <p>High-throughput, image-based profiling of Cell Painting data, including open-source software for single-cell analysis.</p>
+  </article>
+  <article class="theme">
+    <h3>Spatial biology</h3>
+    <p>Computational methods for spatial omics data to study how cells are organized within tissues.</p>
+  </article>
+</div>
 
-  a {
-    color: #00008B; /* Dark blue for links */
-    background-color: transparent; /* Ensure link background is transparent */
-    text-decoration: none; /* Remove underline */
-  }
+## Recent publications
 
-  a:visited {
-    color: #5A5A8B; /* Slightly lighter dark blue for visited links */
-  }
-</style>
+<ol class="pubs">
+{% for pub in site.data.publications limit: 3 %}{% include publication.html pub=pub %}{% endfor %}
+</ol>
 
-## Overview
-
-Welcome to my research page! My research focuses on developing computational methods to process and analyze biological images. I combine applied mathematics, statistical analysis, and machine learning to study complex biological data, with a particular interest in microscopy imaging and spatial omics. Through my work, I aim to develop tools that help researchers better understand cellular features, biological phenotypes, and tissue organization.
-
-## Publications
-
-- [Supervised and unsupervised learning reveals heroin-induced impairments in astrocyte structural plasticity](https://www.science.org/doi/10.1126/sciadv.ads6841), *Science Advances*. <span style="color:#5B9AD5; font-size:0.9em;"><strong>Marini, M.</strong>, Niu Y., Zhao H., Mohan A., Koorndyk N., Kruyer A., Labate D.</span> (2025)
-
-- [βIV Spectrin abundancy, cellular distribution, and sensitivity to AKT/GSK3 regulation in schizophrenia](https://doi.org/10.1038/s41380-025-02917-1), *Molecular Psychiatry*. <span style="color:#5B9AD5; font-size:0.9em;">Di Re, J., **Marini, M.**, Hussain, S.I., Singh, A.K., Venkatesh, A., Alshammari, M.A., Alshammari, T.K., Hamoud, A.R.A., Imami, A.S., Haghighijoo, Z., Fularcyzk, N., Stertz, L., Mosebarger, A., Jernigan, J., Chaljub, C., Walss-Bass, C., Schulmann, A., Vawter, M.P., McCullumsmith, R.D., Damoiseaux, R., Limon, A., Labate, D., Wells, M.F., Laezza, F.</span> (2025)
-
-- [SPACe: an open-source platform for single-cell analysis of Cell Painting data](https://doi.org/10.1038/s41467-024-54264-4), *Nature Communications*. <span style="color:#5B9AD5; font-size:0.9em;">Stossi, F., Singh, P.K., **Marini, M.**, Safari, K., Szafran, A.T., Rivera Tostado, A., Candler, C.D., Mancini, M.G., Mosa, E.A., Bolt, M.J., Labate, D., Mancini, M.A.</span> (2024)
-
-- [High-throughput microscopy and single-cell phenotypic image-based analysis in toxicology and drug discovery](https://doi.org/10.1016/j.bcp.2023.115770), *Biochemical Pharmacology*. <span style="color:#5B9AD5; font-size:0.9em;">Stossi, F., Singh, P., Safari, K., **Marini, M.**, Labate, D., Mancini, M.</span> (2023)
+<p><a class="more" href="{{ '/publications/' | relative_url }}">See all publications</a></p>

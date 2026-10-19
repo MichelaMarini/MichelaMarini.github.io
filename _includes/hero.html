@@ -1,0 +1,14 @@
+{% if page.url == '/' %}
+<header class="hero hero-home" style="background-image: url('{{ '/images/img_page.jpeg' | relative_url }}');">
+  <div class="hero-inner">
+    <h1 class="hero-title">{{ site.author.name }}</h1>
+    <p class="hero-subtitle">{{ site.author.role }}, {{ site.author.institute }}</p>
+  </div>
+</header>
+{% else %}
+<header class="hero hero-compact" style="background-image: url('{{ '/images/img_page.jpeg' | relative_url }}');">
+  <div class="hero-inner">
+    <h1 class="hero-title">{{ page.heading | default: page.title }}</h1>
+  </div>
+</header>
+{% endif %}

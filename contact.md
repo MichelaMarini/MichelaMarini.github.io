@@ -1,90 +1,17 @@
 ---
-layout: page
+title: Contact
 ---
 
-<!-- No Title -->
-
-<style>
-  body {
-    background-color: #FFFFFF; 
-  }
-
-  a {
-    color: #00008B; /* Dark blue for links */
-    background-color: transparent; /* Ensure link background is transparent */
-    text-decoration: none; /* Remove underline, optional */
-  }
-
-  a:visited {
-    color: #5A5A8B; /* Slightly lighter dark blue for visited links */
-  }
-
-  .contact-container {
-    display: flex;
-    justify-content: flex-start; /* Align content to the left */
-    align-items: center;
-    height: 50vh;
-  }
-
-  .contact-info {
-    max-width: 400px;
-    text-align: left;
-  }
-
- .contact-image-container {
-    float: left; /* Float the image container to the left on larger screens */
-    margin-left: 80px; /* Slightly reduce the left margin */
-    border-radius: 50%; /* Keep the image circular */
-    width: 240px; /* Reduce the width to make the image smaller */
-    height: 240px; /* Reduce the height accordingly */
-    overflow: hidden; /* Hide the overflow to maintain the circular shape */
-}
-
-  .contact-image {
-    width: 100%; /* Ensure the image fits within the container */
-    height: auto; /* Allow the image to adjust its height while maintaining aspect ratio */
-  }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .contact-image-container {
-        float: none; /* Remove float on smaller screens */
-        margin-left: 0; /* Remove the left margin */
-        width: 110px; /* Further reduce the width for smaller screens */
-        height: 110px; /* Further reduce the height for smaller screens */
-        margin: 0 auto; /* Center the image */
-    }
-
-    .contact-image {
-        width: 100%; /* Ensure the image fits the container */
-        height: 100%; /* Ensure the image fills the container */
-        object-fit: cover; /* Keep the circular aspect ratio */
-        display: block;
-    }
-}
-
-<style>
-  .contact-container .contact-info h1 {
-    font-family: 'Arial', sans-serif; /* Change this to any font you prefer */
-    font-size: 24px; /* Adjust the size */
-    font-weight: bold; /* Adjust the weight */
-    color: #333; /* Adjust the color */
-    border-radius: 50%; /* Ensure circular shape */
-  }
-</style>
-
-<div class="contact-container">
-  <div class="contact-info">
-    <h1>Get in Touch!</h1>
-
-    <ul>
-      <li><b>Email:</b> <a href="mailto:mmarini@ibecbarcelona.eu">mmarini@ibecbarcelona.eu</a></li>
-      <li><b>LinkedIn:</b> <a href="https://www.https://www.linkedin.com/in/michela-marini-bb813517a/">Michela Marini</a></li>
-      <li><b>GitHub:</b> <a href="https://github.com/MichelaMarini" target="_blank">MichelaMarini</a></li>
-    </ul>
+<section class="contact">
+  <img src="{{ '/images/me.jpeg' | relative_url }}" alt="Portrait of {{ site.author.name }}" class="portrait portrait-round">
+  <div>
+    <p class="lead">Feel free to get in touch about research, collaborations or software.</p>
+    <dl class="facts">
+      <dt>Email</dt><dd><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></dd>
+      <dt>Group</dt><dd><a href="{{ site.author.group_url }}">{{ site.author.group }}</a></dd>
+      <dt>Institute</dt><dd>{{ site.author.institute }}</dd>
+      <dt>City</dt><dd>{{ site.author.city }}</dd>
+    </dl>
+    {% include social-links.html %}
   </div>
-
-  <div class="contact-image-container">
-    <img src="/images/me.jpeg" alt="Contact Image" class="contact-image">
-  </div>
-</div>
+</section>

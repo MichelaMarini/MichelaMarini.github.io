@@ -1,58 +1,53 @@
-# Set theme
-remote_theme: daviddarnes/alembic@main
-
-# File excludes
-exclude:
-- README.md
-- Gemfile
-- Gemfile.lock
-
-# Set plugins
-plugins:
-- jekyll-sitemap
-- jekyll-mentions
-- jekyll-paginate
-- jekyll-seo-tag
-- jekyll-redirect-from
-- jekyll-feed
-- jekyll-commonmark
-- jekyll-include-cache
-- jemoji
-- jekyll-remote-theme
-
-# Site settings
-url: 'https://mydomain.com'
-baseurl: ''
-title: 'Michela Marini'
-description: 'PhD'
+# ---------------------------------------------------------------
+# Site settings — edit the values below to update your details.
+# ---------------------------------------------------------------
+title: Michela Marini
+description: >-
+  Postdoctoral researcher in computational imaging and spatial biology
+  at the Institute for Bioengineering of Catalonia (IBEC), Barcelona.
+url: "https://michelamarini.github.io"
+baseurl: ""
 permalink: pretty
-logo: "/images/logo_name.png"
+markdown: kramdown
 
-# Pagination
-paginate: 5
-paginate_path: blog/page:num
+# Your details (used in the header, home page and footer)
+author:
+  name: Michela Marini
+  role: Postdoctoral Researcher
+  group: Spatial Biotechnology group
+  group_url: "https://ibecbarcelona.eu/research-groups/spatial-biotechnology/"
+  institute: Institute for Bioengineering of Catalonia (IBEC)
+  city: Barcelona, Spain
+  email: mmarini@ibecbarcelona.eu
+  github: "https://github.com/MichelaMarini"
+  linkedin: "https://www.linkedin.com/in/michela-marini-bb813517a/"
+  scholar: ""   # paste your Google Scholar profile link here to show it
+  orcid: ""     # paste your ORCID link here (https://orcid.org/...) to show it
 
-# Header nav
-navigation_header:
-- title: Home
-  url: /
-- title: Contact
-  url: /contact/
-- title: Research
-  url: /research/
-- title: Teaching
-  url: /teaching/
+# Menu at the top of every page (order = order shown)
+navigation:
+  - title: Home
+    url: /
+  - title: Research
+    url: /research/
+  - title: Publications
+    url: /publications/
+  - title: Teaching
+    url: /teaching/
+  - title: Contact
+    url: /contact/
 
-# Footer nav
-navigation_footer:
-- title: GitHub
-  url: "https://github.com/MichelaMarini"
-  icon: "/images/github.svg"
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
-- title: LinkedIn
-  url: "https://www.linkedin.com/in/michela-marini-bb813517a/"
-  icon: "/images/linkedin.svg"
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
 
-- title: adopted theme alembic
-  url: "https://github.com/daviddarnes/alembic"
-
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

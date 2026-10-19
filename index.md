@@ -1,53 +1,41 @@
 ---
-feature_image: "/images/img_page.jpeg"
+title: Home
 ---
 
-<!-- No Title -->
-
-<style>
-  body {
-    background-color: #FFFFFF; 
-  }
-
-  a {
-    color: #00008B; /* Dark blue for links */
-    background-color: transparent; /* Ensure link background is transparent */
-    text-decoration: none; /* Remove underline, optional */
-  }
-
-  a:visited {
-    color: #5A5A8B; /* Slightly lighter dark blue for visited links */
-  }
-</style>
-
-
-
-## About me
+<section class="intro">
+  <div class="intro-text" markdown="1">
 
 I am a Postdoctoral Researcher in the [Spatial Biotechnology group](https://ibecbarcelona.eu/research-groups/spatial-biotechnology/) at the Institute for Bioengineering of Catalonia (IBEC), working at the intersection of computational imaging, spatial biology, and applied mathematics. I hold a Ph.D. in Applied Mathematics from the University of Houston, USA.
 
 My research focuses on developing computational methods and software to process and analyze biological images and spatial omics data. I enjoy using image processing, machine learning, and quantitative methods to solve challenging problems in biology and better understand cellular features, phenotypes, and tissue organization.
 
-Previously, I collaborated with the [Integrated Microscopy Core Lab](https://www.bcm.edu/research/atc-core-labs/integrated-microscopy-core) at Baylor College of Medicine on the quantitative analysis of Cell Painting images.
+Previously, I collaborated with the [Integrated Microscopy Core Lab](https://www.bcm.edu/research/atc-core-labs/integrated-microscopy-core) at Baylor College of Medicine on the quantitative analysis of Cell Painting images. I also served as vice president of the University of Houston chapter of the Association for Women in Mathematics (AWM).
 
-I also served as vice president of the University of Houston chapter of the Association for Women in Mathematics (AWM).
+  </div>
+  <aside class="intro-card">
+    <img src="{{ '/images/me.jpeg' | relative_url }}" alt="Portrait of {{ site.author.name }}" class="portrait">
+    <dl class="facts">
+      <dt>Group</dt><dd><a href="{{ site.author.group_url }}">{{ site.author.group }}</a></dd>
+      <dt>Institute</dt><dd>IBEC, {{ site.author.city }}</dd>
+      <dt>Email</dt><dd><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></dd>
+    </dl>
+    {% include social-links.html %}
+  </aside>
+</section>
+
+## News
+
+<ul class="news">
+{% assign news = site.data.news | sort: "date" | reverse %}
+{% for item in news %}
+  <li><time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: "%b %Y" }}</time><span>{{ item.text }}</span></li>
+{% endfor %}
+</ul>
 
 ## Education
 
-- **Ph.D.** Mathematics, University of Houston, USA 
-- **M.S.** Bioelectronics Engineering, University of Bologna, Italy 
-- **B.S.** Biomedical Engineering, University of Bologna, Italy
-
-## Events
-
-- _09/2026_ \| I presented our research poster at the European Society for Systems Biology ([ESSB](https://essb2026.org/)) Conference in Sitges, Spain.
-  
-- _07/2025_ \| I successfully defended my PhD in Applied Mathematics at the University of Houston :)
-  
-- _05/2025_ \| My first first-author paper is out in *Science Advances*! The University of Houston featured our study in a [press release](https://uh.edu/news-events/stories/2025/april/04302025-heroin-brain-study.php).
-
-- _10/2024_ \| I presented our research poster at the SIAM Conference on Mathematics of Data Science ([MDS2024](https://www.siam.org/conferences-events/siam-conferences/mds24/)) in Atlanta, GA, US.
-
-- _05/2024_ \| I presented our research poster at the COTS-2024: AI, Machine Learning, and Other Related Statistical Techniques with Applications in Healthcare ([COTS-2024](https://sites.google.com/view/cots2024houstonmethodistmathur/home)) in Houston, TX, US. I won second place in the best poster competition. 
-
-- _08/2023_ \| I participated in the Research Collaboration Workshop “Women in Data Science and Mathematics” ([WDSM](https://www.ipam.ucla.edu/programs/special-events-and-conferences/women-in-data-science-and-mathematics/)) at UCLA, Los Angeles, CA, US.
+<ul class="timeline">
+  <li><span class="degree">Ph.D. in Mathematics</span><span class="place">University of Houston, USA</span></li>
+  <li><span class="degree">M.S. in Bioelectronics Engineering</span><span class="place">University of Bologna, Italy</span></li>
+  <li><span class="degree">B.S. in Biomedical Engineering</span><span class="place">University of Bologna, Italy</span></li>
+</ul>

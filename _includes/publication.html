@@ -1,0 +1,6 @@
+{%- assign pub = include.pub -%}
+<li class="pub">
+  <p class="pub-title"><a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.title }}</a></p>
+  <p class="pub-authors">{{ pub.authors | replace: "Marini, M.", "<strong>Marini, M.</strong>" }}</p>
+  <p class="pub-venue"><em>{{ pub.journal }}</em>, {{ pub.year }}{% if pub.first_author %} <span class="tag">First author</span>{% endif %}</p>
+</li>

@@ -1,0 +1,12 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}</p>
+    <ul class="footer-icons">
+      <li><a href="mailto:{{ site.author.email }}" aria-label="Email" title="Email">{% include icon.html name="email" px=20 %}</a></li>
+      {% if site.author.github != "" %}<li><a href="{{ site.author.github }}" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener">{% include icon.html name="github" px=20 %}</a></li>{% endif %}
+      {% if site.author.linkedin != "" %}<li><a href="{{ site.author.linkedin }}" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">{% include icon.html name="linkedin" px=20 %}</a></li>{% endif %}
+      {% if site.author.scholar != "" %}<li><a href="{{ site.author.scholar }}" aria-label="Google Scholar" title="Google Scholar" target="_blank" rel="noopener">{% include icon.html name="scholar" px=20 %}</a></li>{% endif %}
+      {% if site.author.orcid != "" %}<li><a href="{{ site.author.orcid }}" aria-label="ORCID" title="ORCID" target="_blank" rel="noopener">{% include icon.html name="orcid" px=20 %}</a></li>{% endif %}
+    </ul>
+  </div>
+</footer>

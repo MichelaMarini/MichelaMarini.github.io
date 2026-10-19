@@ -1,0 +1,31 @@
+<nav class="navbar" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      {% for item in site.navigation %}
+        {% if item.url == '/' %}
+          {% assign is_active = false %}{% if page.url == '/' %}{% assign is_active = true %}{% endif %}
+        {% else %}
+          {% assign is_active = false %}{% if page.url contains item.url %}{% assign is_active = true %}{% endif %}
+        {% endif %}
+        <li><a href="{{ item.url | relative_url }}" class="nav-link{% if is_active %} active{% endif %}"{% if is_active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
+<script>
+  (function () {
+    var btn = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('nav-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      btn.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+      menu.classList.toggle('is-open', !open);
+    });
+  })();
+</script>

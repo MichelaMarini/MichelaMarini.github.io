@@ -1,0 +1,37 @@
+# News shown on the home page, newest first (sorted automatically by date).
+# To add an item: copy one block, change the date (YYYY-MM-DD) and the text.
+# The text can contain links: <a href="https://...">link text</a>
+
+- date: 2026-09-01
+  text: >-
+    Presented our research poster at the European Society for Systems Biology
+    (<a href="https://essb2026.org/">ESSB</a>) Conference in Sitges, Spain.
+
+- date: 2025-07-01
+  text: >-
+    Successfully defended my PhD in Applied Mathematics at the University of Houston.
+
+- date: 2025-05-01
+  text: >-
+    My first first-author paper is out in <em>Science Advances</em>! The University of
+    Houston featured our study in a
+    <a href="https://uh.edu/news-events/stories/2025/april/04302025-heroin-brain-study.php">press release</a>.
+
+- date: 2024-10-01
+  text: >-
+    Presented our research poster at the SIAM Conference on Mathematics of Data Science
+    (<a href="https://www.siam.org/conferences-events/siam-conferences/mds24/">MDS24</a>)
+    in Atlanta, GA, USA.
+
+- date: 2024-05-01
+  text: >-
+    Won second place in the best poster competition at
+    <a href="https://sites.google.com/view/cots2024houstonmethodistmathur/home">COTS-2024</a>:
+    AI, Machine Learning, and Other Related Statistical Techniques with Applications
+    in Healthcare, Houston, TX, USA.
+
+- date: 2023-08-01
+  text: >-
+    Participated in the Research Collaboration Workshop “Women in Data Science and
+    Mathematics” (<a href="https://www.ipam.ucla.edu/programs/special-events-and-conferences/women-in-data-science-and-mathematics/">WDSM</a>)
+    at UCLA, Los Angeles, CA, USA.
