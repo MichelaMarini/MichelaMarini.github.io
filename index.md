@@ -44,8 +44,8 @@ I also served as vice president of the University of Houston chapter of the Asso
 
 ## Events
 
--_09/2026_ \|I presented our research poster at the European Society for Systems Biology ([ESSB])(https://essb2026.org/) Conference in Sitges, Spain.
-
+- _09/2026_ \|I presented our research poster at the European Society for Systems Biology [ESSB](https://essb2026.org/) Conference in Sitges, Spain.
+  
 - _05/2025_ \| My first first-author paper is out in *Science Advances*! The University of Houston featured our study in a [press release](https://uh.edu/news-events/stories/2025/april/04302025-heroin-brain-study.php).
 
 - _10/2024_ \| I presented our research poster at the SIAM Conference on Mathematics of Data Science ([MDS2024](https://www.siam.org/conferences-events/siam-conferences/mds24/)) in Atlanta, GA, US.
