@@ -20,6 +20,8 @@ My research focuses on developing computational methods to process and analyze b
   </article>
 </div>
 
+[Interactive analysis of the Cell Painting dataset](/cpmetab/)
+
 ## Recent publications
 
 <ol class="pubs">
