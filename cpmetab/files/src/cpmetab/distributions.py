@@ -45,6 +45,36 @@ class DistributionResults:
     diagnostics: dict = field(default_factory=dict)
 
 
+def feature_name(table: str, column: str) -> str:
+    """Name of a single-cell feature column: the table name is added as a
+    prefix only when the column does not already start with it, so SPACe's
+    ``Shape_Area_cell`` stays ``Shape_Area_cell`` (not ``shape_Shape_Area_cell``)
+    and ``mean_dapi`` from the intensity table becomes ``intensity_mean_dapi``."""
+    column = str(column)
+    return column if column.lower().startswith(table + "_") else f"{table}_{column}"
+
+
+def clean_feature_name(name: str) -> str:
+    """Remove the doubled prefix written by the original step 1 script
+    (``shape_Shape_Area_cell`` -> ``Shape_Area_cell``)."""
+    m = re.match(r"^(shape|intensity|texture)_(.*)$", str(name), flags=re.I)
+    if m and m.group(2).lower().startswith(m.group(1).lower() + "_"):
+        return m.group(2)
+    return str(name)
+
+
+def _clean_columns(df: pd.DataFrame) -> pd.DataFrame:
+    new = [clean_feature_name(c) for c in df.columns]
+    if len(set(new)) == len(new):          # only if no two columns would get the same name
+        df = df.set_axis(new, axis=1)
+    return df
+
+
+def _is_feature(df: pd.DataFrame, c) -> bool:
+    return (str(c).split("_", 1)[0].lower() in FEATURE_TABLES
+            and pd.api.types.is_numeric_dtype(df[c]))
+
+
 def _find_csv(folder: Path, key: str) -> Path:
     hits = sorted(p for p in folder.glob("*.csv") if key.lower() in p.name.lower())
     if not hits:
@@ -93,7 +123,9 @@ def read_experiment(exp_dir: Path, treatments) -> pd.DataFrame | None:
         return None
     parts = [meta.loc[rows, META_COLS].reset_index(drop=True)]
     for k in FEATURE_TABLES:
-        parts.append(_read_rows(paths[k], rows).add_prefix(f"{k}_").reset_index(drop=True))
+        t = _read_rows(paths[k], rows)
+        parts.append(t.set_axis([feature_name(k, c) for c in t.columns], axis=1)
+                     .reset_index(drop=True))
     df = pd.concat(parts, axis=1)
     df["treatment"] = df["treatment"].map(clean_treatment)
     df.insert(0, "replicate", rep)
@@ -116,6 +148,7 @@ def read_extracted(path, treatments, name: str | None = None) -> pd.DataFrame | 
         return None
     df = pd.read_csv(path) if name.lower().endswith(".csv") else pd.read_excel(path)
     df = df.loc[:, ~df.columns.astype(str).str.contains(r"^Unnamed", case=False)]
+    df = _clean_columns(df)
     if treatments is None:                       # keep every treatment in the file
         treatments = df["treatment"].astype(str).unique()
     missing = [c for c in META_COLS if c not in df.columns]
@@ -138,8 +171,7 @@ def load_single_cell_files(items, treatments=None) -> tuple[pd.DataFrame, list[s
     if not frames:
         raise ValueError("No usable distribution_features_<CellLine>_<replicate> files")
     cells = pd.concat(frames, ignore_index=True)
-    features = [c for c in cells.columns
-                if c.split("_", 1)[0] in FEATURE_TABLES and pd.api.types.is_numeric_dtype(cells[c])]
+    features = [c for c in cells.columns if _is_feature(cells, c)]
     return cells, features
 
 
@@ -166,8 +198,7 @@ def load_single_cell(root: str | Path, treatments=FIG6_TREATMENTS) -> tuple[pd.D
             f"Nothing to read in {root}: expected '<plate>_<CellLine>-<rep>/Step4_Features' "
             "folders or 'distribution_features_<CellLine>_<rep>.xlsx' files")
     cells = pd.concat(frames, ignore_index=True)
-    features = [c for c in cells.columns
-                if c.split("_", 1)[0] in FEATURE_TABLES and pd.api.types.is_numeric_dtype(cells[c])]
+    features = [c for c in cells.columns if _is_feature(cells, c)]
     return cells, features
 
 
@@ -258,6 +289,7 @@ def _from_frame(df: pd.DataFrame) -> pd.DataFrame | None:
         out["feature"] = out["feature"].str.removesuffix("_Wess_Distance")
     from .io import canonical_cell_line
     out["cell-line"] = out["cell-line"].astype(str).map(canonical_cell_line)
+    out["feature"] = out["feature"].map(clean_feature_name)
     out["replicate"] = out["replicate"].astype(str).str.replace(r"\.0$", "", regex=True)
     out["signed_w"] = pd.to_numeric(out["signed_w"], errors="coerce")
     return out

@@ -193,16 +193,20 @@ with tabs[1]:
     if res is None:
         need_maps()
     else:
-        rep = st.radio("Replicate", list(res.toxicity), horizontal=True, key="r1")
+        rep = st.radio("Biological replicate", list(res.toxicity), horizontal=True, key="r1")
+        st.markdown(f"**Cell count, biological replicate {rep}** (% of DMSO)")
         show(lambda: plots.toxicity_heatmap(res.toxicity[rep], order))
+        st.dataframe(res.toxicity[rep].round(1))
 
 with tabs[2]:
     if res is None:
         need_maps()
     else:
         variant = st.radio("Heatmap", list(res.heatmaps), horizontal=True)
-        rep = st.radio("Replicate", list(res.toxicity), horizontal=True, key="r2")
+        rep = st.radio("Biological replicate", list(res.toxicity), horizontal=True, key="r2")
+        st.markdown(f"**Euclidean distance ({variant}), biological replicate {rep}**")
         show(lambda: plots.ed_heatmap(res.heatmaps[variant][rep], variant, res.settings.ed_vmax))
+        st.dataframe(res.heatmaps[variant][rep].round(2))
 
 with tabs[3]:
     if res is None:
@@ -265,10 +269,17 @@ with tabs[4]:
         rep = st.radio("Biological replicate (vs replicate 1)",
                        sorted(counts["replicate"].unique()), horizontal=True, key="r3")
         lines6 = ordered(counts["cell-line"].unique())
+        st.markdown(f"**EMD feature deviation counts, biological replicate {rep} vs replicate 1**")
         cols = st.columns(min(4, len(lines6)))
         for i, cl in enumerate(lines6):
             with cols[i % len(cols)]:
                 show(lambda: plots.outlier_bars(counts, rep, cl, treatments, show_ylabel=i == 0))
+        c_rep = counts[counts["replicate"] == rep]
+        st.caption("Number of deviating features (low = W ≤ −0.15, up = 0.15 ≤ W ≤ 2) "
+                   f"per cell line and compound, replicate {rep} vs replicate 1:")
+        st.dataframe(c_rep.pivot_table(index="cell-line", columns="treatment",
+                                       values=["low_count", "up_count"], aggfunc="sum")
+                     .reindex(lines6).reindex(columns=treatments, level=1))
 
         st.subheader("Features: consistent or deviating between biological replicates")
         n_comp = int(dist.groupby("feature")["signed_w"].count().max())

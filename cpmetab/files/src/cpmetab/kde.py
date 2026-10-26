@@ -13,9 +13,9 @@ from matplotlib.lines import Line2D
 
 from .config import canon
 
-FIG7A = {"cell_line": "U2OS", "feature": "shape_Shape_Area_cell", "treatment": "DMSO",
+FIG7A = {"cell_line": "U2OS", "feature": "Shape_Area_cell", "treatment": "DMSO",
          "color": "#74B6A1", "xlabel": "Area cell"}
-FIG7B = {"feature": "shape_Shape_Area_cyto", "replicate": "1", "xlabel": "Cell area",
+FIG7B = {"feature": "Shape_Area_cyto", "replicate": "1", "xlabel": "Cell area",
          "treatments": ("DMSO", "Toyocamycin", "17-dmag", "Tms", "Artemisinin", "Fccp")}
 
 
