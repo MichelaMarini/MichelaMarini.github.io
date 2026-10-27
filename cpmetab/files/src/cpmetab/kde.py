@@ -28,8 +28,7 @@ def _minmax(s: pd.Series) -> pd.Series:
 def _style(ax, xlabel):
     ax.set_xlabel(xlabel, fontsize=18, fontname="Arial")
     ax.set_ylabel("Density curves (per well, FOV)", fontsize=18, fontname="Arial")
-    ax.set_ylim(0, 14)
-    ax.set_yticks(range(0, 15, 2))
+    ax.set_ylim(bottom=0)            # top: from the data
     ax.set_xticks([0, 0.5, 1])
     ax.tick_params(axis='x', labelsize=16)
     ax.tick_params(axis='y', labelsize=16)

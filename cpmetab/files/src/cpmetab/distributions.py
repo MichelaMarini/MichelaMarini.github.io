@@ -116,8 +116,11 @@ def read_experiment(exp_dir: Path, treatments) -> pd.DataFrame | None:
     missing = [c for c in META_COLS if c not in meta.columns]
     if missing:
         raise KeyError(f"{exp_dir.name}: missing metadata columns {missing}")
-    wanted = {canon(t) for t in treatments}
-    mask = meta["treatment"].astype(str).str.strip().map(canon).isin(wanted).to_numpy()
+    if treatments is None:                       # keep every treatment
+        mask = np.ones(len(meta), dtype=bool)
+    else:
+        wanted = {canon(t) for t in treatments}
+        mask = meta["treatment"].astype(str).str.strip().map(canon).isin(wanted).to_numpy()
     rows = np.flatnonzero(mask)
     if rows.size == 0:
         return None

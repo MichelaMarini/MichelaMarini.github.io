@@ -5,6 +5,7 @@ import sys
 import pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 
+import base64  # noqa: E402
 import io  # noqa: E402
 import threading  # noqa: E402
 import tempfile  # noqa: E402
@@ -93,6 +94,22 @@ def results_zip(files, positive_controls) -> bytes:
     return buf.getvalue()
 
 
+def choose(widget, label, options, key, default=None, **kw):
+    """A radio button / select box that always returns one of ``options``.
+
+    Newer Streamlit versions return None when a remembered choice is no longer
+    among the options (e.g. after uploading other files); here the choice
+    falls back to ``default`` (or the first option) instead."""
+    options = list(options)
+    if not options:
+        return None
+    fallback = default if default in options else options[0]
+    if st.session_state.get(key) not in options:
+        st.session_state[key] = fallback
+    value = widget(label, options, key=key, **kw)
+    return value if value in options else fallback
+
+
 def excel_bytes(df) -> bytes:
     buf = io.BytesIO()
     df.to_excel(buf, index=False)
@@ -102,13 +119,27 @@ def excel_bytes(df) -> bytes:
 _PLOT_LOCK = threading.RLock()   # matplotlib is not thread-safe; draw one figure at a time
 
 
+def _display(fig):
+    """Put the figure into the page as a picture (PNG embedded in the page).
+
+    Not using st.pyplot: in the browser (stlite) version it can keep showing
+    the previous image after a change. The picture is shown at its natural
+    size, but never wider than the column."""
+    buf = io.BytesIO()
+    fig.savefig(buf, format="png", dpi=110, bbox_inches="tight")
+    b64 = base64.b64encode(buf.getvalue()).decode()
+    width = int(fig.get_size_inches()[0] * 110)
+    st.markdown(f'<img src="data:image/png;base64,{b64}" '
+                f'style="width:{width}px;max-width:100%;height:auto;">',
+                unsafe_allow_html=True)
+    plt.close(fig)
+
+
 def show(make):
     """Create a figure with ``make()`` and display it, holding the plot lock
     so that reruns or other sessions cannot draw on it at the same time."""
     with _PLOT_LOCK:
-        fig = make()
-        st.pyplot(fig, width="content")
-        plt.close(fig)
+        _display(make())
 
 
 def show_many(make):
@@ -117,8 +148,7 @@ def show_many(make):
         cols = st.columns(min(3, max(len(figs), 1)))
         for i, fig in enumerate(figs.values()):
             with cols[i % len(cols)]:
-                st.pyplot(fig, width="content")
-            plt.close(fig)
+                _display(fig)
 
 
 # ------------------------------------------------------------------ sidebar
@@ -193,7 +223,7 @@ with tabs[1]:
     if res is None:
         need_maps()
     else:
-        rep = st.radio("Biological replicate", list(res.toxicity), horizontal=True, key="r1")
+        rep = choose(st.radio, "Biological replicate", res.toxicity, "r1", horizontal=True)
         st.markdown(f"**Cell count, biological replicate {rep}** (% of DMSO)")
         show(lambda: plots.toxicity_heatmap(res.toxicity[rep], order))
         st.dataframe(res.toxicity[rep].round(1))
@@ -202,8 +232,8 @@ with tabs[2]:
     if res is None:
         need_maps()
     else:
-        variant = st.radio("Heatmap", list(res.heatmaps), horizontal=True)
-        rep = st.radio("Biological replicate", list(res.toxicity), horizontal=True, key="r2")
+        variant = choose(st.radio, "Heatmap", res.heatmaps, "hm", horizontal=True)
+        rep = choose(st.radio, "Biological replicate", res.toxicity, "r2", horizontal=True)
         st.markdown(f"**Euclidean distance ({variant}), biological replicate {rep}**")
         show(lambda: plots.ed_heatmap(res.heatmaps[variant][rep], variant, res.settings.ed_vmax))
         st.dataframe(res.heatmaps[variant][rep].round(2))
@@ -266,14 +296,17 @@ with tabs[4]:
     if dist is not None:
         counts = count_outliers(dist)
         treatments = [t for t in in_table if t in shown]
-        rep = st.radio("Biological replicate (vs replicate 1)",
-                       sorted(counts["replicate"].unique()), horizontal=True, key="r3")
+        rep = choose(st.radio, "Biological replicate (vs replicate 1)",
+                     sorted(counts["replicate"].unique()), "r3", horizontal=True)
         lines6 = ordered(counts["cell-line"].unique())
+        c_top = counts[counts["replicate"] == rep]
+        top6 = float((c_top["low_count"] + c_top["up_count"]).max()) if len(c_top) else 1.0
         st.markdown(f"**EMD feature deviation counts, biological replicate {rep} vs replicate 1**")
         cols = st.columns(min(4, len(lines6)))
         for i, cl in enumerate(lines6):
             with cols[i % len(cols)]:
-                show(lambda: plots.outlier_bars(counts, rep, cl, treatments, show_ylabel=i == 0))
+                show(lambda: plots.outlier_bars(counts, rep, cl, treatments, show_ylabel=i == 0,
+                                                ymax=top6))
         c_rep = counts[counts["replicate"] == rep]
         st.caption("Number of deviating features (low = W ≤ −0.15, up = 0.15 ≤ W ≤ 2) "
                    f"per cell line and compound, replicate {rep} vs replicate 1:")
@@ -309,17 +342,14 @@ with tabs[5]:
             lines7 = ordered(cells["cell-line"].unique())
             feat_list = sorted(feats)
             avail = compound_order(sorted(cells["treatment"].unique()))
-            cl = st.selectbox("Cell line", lines7)
+            cl = choose(st.selectbox, "Cell line", lines7, "cl7")
 
             st.markdown("#### Density per well and field of view, per biological replicate")
             c1, c2 = st.columns(2)
-            fa = c1.selectbox("Feature", feat_list, key="fa",
-                              index=feat_list.index(kde.FIG7A["feature"])
-                              if kde.FIG7A["feature"] in feat_list else 0,
-                              help="Type to search the feature list.")
+            fa = choose(c1.selectbox, "Feature", feat_list, "fa", default=kde.FIG7A["feature"],
+                        help="Type to search the feature list.")
             in_cl = [t for t in avail if t in set(cells.loc[cells["cell-line"] == cl, "treatment"])]
-            tr = c2.selectbox("Compound", in_cl, key="tr",
-                              index=in_cl.index("DMSO") if "DMSO" in in_cl else 0)
+            tr = choose(c2.selectbox, "Compound", in_cl, "tr", default="DMSO")
             try:
                 show_many(lambda: kde.replicate_density_figures(cells, cl, fa, tr, label=tr,
                                                                 xlabel=fa))
@@ -328,12 +358,10 @@ with tabs[5]:
 
             st.markdown("#### Ridge plot of compounds")
             c3, c4 = st.columns(2)
-            fb = c3.selectbox("Feature", feat_list, key="fb",
-                              index=feat_list.index(kde.FIG7B["feature"])
-                              if kde.FIG7B["feature"] in feat_list else 0,
-                              help="Type to search the feature list.")
+            fb = choose(c3.selectbox, "Feature", feat_list, "fb", default=kde.FIG7B["feature"],
+                        help="Type to search the feature list.")
             reps7 = sorted(cells.loc[cells["cell-line"] == cl, "replicate"].unique())
-            r7 = c4.selectbox("Biological replicate", reps7, key="r7")
+            r7 = choose(c4.selectbox, "Biological replicate", reps7, "r7")
             comps = st.multiselect("Compounds", in_cl, key="comps",
                                    default=[t for t in kde.FIG7B["treatments"] if t in in_cl]
                                    or in_cl[:6])

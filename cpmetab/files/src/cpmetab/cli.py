@@ -97,9 +97,11 @@ def export_distributions(dres, out: Path, cell_line_order=None, formats=("png", 
     treatments = [t for t in dres.settings.treatments if t in set(dres.counts["treatment"])]
     lines = ordered(dres.counts["cell-line"].unique())
     for rep in sorted(dres.counts["replicate"].astype(str).unique()):
+        c = dres.counts[dres.counts["replicate"].astype(str) == rep]
+        top = float((c["low_count"] + c["up_count"]).max()) if len(c) else 1.0
         for i, cl in enumerate(lines):
             save(plots.outlier_bars(dres.counts, rep, cl, treatments, show_ylabel=i == 0,
-                                    show_legend=i == len(lines) - 1),
+                                    show_legend=i == len(lines) - 1, ymax=top),
                  f"emd_feature_deviation_counts_rep{rep}_{cl}")
     return written
 

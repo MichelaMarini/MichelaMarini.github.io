@@ -2,7 +2,6 @@
 Every function returns a matplotlib Figure (nothing is shown or saved here)."""
 from __future__ import annotations
 
-import matplotlib.gridspec as gridspec
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -153,46 +152,45 @@ def control_ed_plot(ctrl: pd.DataFrame, control: str, cell_line_order) -> Figure
 
 # --------------------- EMD feature deviation counts between biological replicates
 def outlier_bars(counts: pd.DataFrame, replicate, cell_line: str, treatments,
-                 show_ylabel: bool = False, show_legend: bool = False) -> Figure:
+                 show_ylabel: bool = False, show_legend: bool = False,
+                 ymax: float | None = None) -> Figure:
     """Number of features whose signed Wasserstein distance to replicate 1
-    deviates (figure6_step4_plot.py); one figure per cell line and replicate."""
-    from brokenaxes import brokenaxes
+    deviates (low: blue, up: red), per compound; one figure per cell line and
+    replicate. The y-axis is scaled to the counts (``ymax`` sets a common top,
+    e.g. the largest count over all cell lines, so panels are comparable)."""
+    from matplotlib.ticker import MaxNLocator
     mpl_defaults()
-    total_features = 405
     cell_df = counts[(counts['cell-line'] == cell_line)
                      & (counts['replicate'].astype(str) == str(replicate))]
     low, up = [], []
     for t in treatments:
         td = cell_df[cell_df['treatment'] == t]
-        low.append((td['low_count'].sum() / total_features) * total_features)
-        up.append((td['up_count'].sum() / total_features) * total_features)
-    fig = plt.figure(figsize=(4, 4))
-    gs = gridspec.GridSpec(1, 1, figure=fig)
-    ax = brokenaxes(ylims=((0, 180), (350, 405)), height_ratios=[0.2, 0.8], hspace=0.2,
-                    d=0.01, subplot_spec=gs[0])
+        low.append(td['low_count'].sum())
+        up.append(td['up_count'].sum())
+    fig, ax = plt.subplots(figsize=(4, 4))
     x = np.arange(len(treatments))
     ax.bar(x, low, 0.6, color='#4472C4', edgecolor='black', linewidth=1.5,
            label='Threshold -0.15')
     ax.bar(x, up, 0.6, bottom=low, color='#C00000', edgecolor='black', linewidth=1.5,
            label='Threshold 0.15')
-    ax.set_xticks(x, minor=True)
-    ax.set_xticklabels(list(treatments), minor=True, rotation=45, ha='right', fontsize=18, **FONT)
     ax.set_xticks(x)
-    ax.set_xticklabels(np.append('', list(treatments)), rotation=45, ha='right', fontsize=18,
-                       **FONT)
-    ax.set_xlabel(f'{cell_line}', labelpad=100, fontsize=20, **FONT)
+    ax.set_xticklabels(list(treatments), rotation=45, ha='right', fontsize=18, **FONT)
+    ax.set_xlabel(f'{cell_line}', fontsize=20, **FONT)
     if show_ylabel:
-        ax.set_ylabel('Number of outliers', fontsize=20, labelpad=40, **FONT)
+        ax.set_ylabel('Number of outliers', fontsize=16, **FONT)
+    top = ymax if ymax is not None else max([lo + u for lo, u in zip(low, up)] + [0])
+    ax.set_ylim(0, max(1.0, top * 1.15))
+    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+    ax.tick_params(axis='y', labelsize=18)
     ax.grid(axis='y', linestyle='--', alpha=0.6)
-    ax.axs[1].set_yticks([0, 40, 80, 120, 160, 200])
-    ax.axs[0].set_yticks([350, 405])
-    ax.axs[1].set_yticklabels([0, 40, 80, 120, 160, 200], fontsize=18, **FONT)
-    ax.axs[0].set_yticklabels([350, 405], fontsize=18, **FONT)
+    ax.set_axisbelow(True)
+    ax.spines[['top', 'right']].set_visible(False)
     if show_legend:
         legend = ax.legend(handles=[
-            Patch(facecolor='#4472C4', edgecolor='black', linewidth=2, label='IQR threshold -0.15'),
-            Patch(facecolor='#C00000', edgecolor='black', linewidth=2, label='IQR threshold 0.15')],
+            Patch(facecolor='#4472C4', edgecolor='black', linewidth=2, label='threshold -0.15'),
+            Patch(facecolor='#C00000', edgecolor='black', linewidth=2, label='threshold 0.15')],
             loc='upper right', fontsize=14, frameon=True)
         for text in legend.get_texts():
             text.set_fontname('Arial')
+    fig.tight_layout()
     return fig
